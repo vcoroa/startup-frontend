@@ -1,59 +1,134 @@
-# StartupSeculoXxiFrontend
+# Sistema de Gerenciamento de Usuários
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Sistema web responsivo desenvolvido com Angular 19 para gerenciamento de usuários com operações CRUD e validação em tempo real.
 
-## Development server
+## Funcionalidades
 
-To start a local development server, run:
+- ✨ Interface responsiva com Bootstrap 5
+- 📋 Listagem de usuários com paginação
+- ➕ Cadastro de novos usuários
+- 📝 Edição de usuários existentes
+- 🗑️ Exclusão de usuários
+- 📸 Preview de avatar com integração DiceBear
+- ✅ Validação de formulários em tempo real
+- 📱 Máscara para formatação de telefone
+- 🔒 Validação de campos obrigatórios
+- 🌐 Integração com API REST
 
-```bash
-ng serve
-```
+## Pré-requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Node.js 18.x
+- NPM 9.x
+- Angular CLI 19.1.5
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Instalação
 
 ```bash
-ng build
+# Clone o repositório
+git clone https://github.com/vcoroa/startup-frontend.git
+
+# Acesse o diretório
+cd startup-frontend
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estrutura do Projeto
 
-## Running unit tests
+src/
+├── app/
+│   ├── components/
+│   │   ├── user-add/      # Componente de adição
+│   │   ├── user-edit/     # Componente de edição  
+│   │   └── user-list/     # Componente de listagem
+│   ├── models/
+│   │   └── user.model.ts  # Interface de usuário
+│   ├── services/
+│   │   └── user.service.ts # Serviço da API
+│   ├── app.component.ts    # Componente principal
+│   ├── app.routes.ts       # Configuração de rotas
+│   └── app.config.ts       # Configuração do app
+└── styles.css              # Estilos globais
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Scripts Disponíveis
+
+# Servidor de desenvolvimento
+npm start 
+
+# Build de produção
+npm run build
+
+# Executa testes unitários
+npm test
+
+# Build em modo watch
+npm run watch
+
+## Modelo de Dados
+
+```typescript
+interface User {
+    id?: string;
+    nome: string;
+    email: string;
+    telefone: string;
+    avatar?: string;
+    createdAt?: string;
+}
+```
+
+## Endpoints da API
+
+# A aplicação consome uma API REST com os seguintes endpoints:
+
+GET    /api/v1/users       # Lista usuários
+GET    /api/v1/users/:id   # Obtém usuário
+POST   /api/v1/users       # Cria usuário 
+PUT    /api/v1/users/:id   # Atualiza usuário
+DELETE /api/v1/users/:id   # Remove usuário
+
+
+## Configuração de Ambiente
+
+# O projeto utiliza variáveis de ambiente definidas em:
+
+- src/environments/environment.ts - Desenvolvimento
+- src/environments/environment.prod.ts - Produção
+
+## Build de Produção
+
+# Para gerar o build otimizado para produção:
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+# Os arquivos serão gerados no diretório dist/.
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+## Testes
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+# Executa testes unitários
+npm test
 
-## Additional Resources
+# Executa testes com coverage
+npm run test:coverage
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Dependências Principais
+
+- Angular 19.1.0
+- Bootstrap 5.3.3
+- NgxMask 17.0.4
+- RxJS 7.8.0
+
+## Suporte
+# Em caso de dúvidas ou problemas:
+
+- Abra uma issue no repositório
+- Envie um email para vanilton.coelho@gmail.com
+

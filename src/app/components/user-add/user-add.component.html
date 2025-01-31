@@ -1,0 +1,92 @@
+<div class="container mt-4">
+    <h2>Adicionar Novo Usuário</h2>
+    
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+    </div>
+    
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" class="needs-validation">
+        
+        <div class="mb-3">
+            <label for="avatar" class="form-label">URL do Avatar</label>
+            <input 
+                id="avatar" 
+                type="url" 
+                class="form-control" 
+                formControlName="avatar"
+                placeholder="https://api.dicebear.com/9.x/big-ears-neutral/svg?seed=Christian"
+                [ngClass]="{'is-invalid': addUserForm.get('avatar')?.invalid && addUserForm.get('avatar')?.touched}"
+                aria-describedby="avatarHelp">
+            <div class="invalid-feedback" id="avatarHelp">
+                URL do avatar é obrigatória
+            </div>
+            <div class="mt-2" *ngIf="addUserForm.get('avatar')?.value">
+                <img [src]="addUserForm.get('avatar')?.value" 
+                    alt="Preview" 
+                    class="rounded-circle"
+                    width="100" 
+                    height="100"
+                    onerror="this.src='https://api.dicebear.com/9.x/big-ears-neutral/svg?seed=Christian'">
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input 
+                id="nome" 
+                type="text" 
+                class="form-control" 
+                formControlName="nome"
+                [ngClass]="{'is-invalid': addUserForm.get('nome')?.invalid && addUserForm.get('nome')?.touched}"
+                aria-describedby="nomeHelp">
+            <div class="invalid-feedback" id="nomeHelp">
+                Nome é obrigatório.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input 
+                id="email" 
+                type="email" 
+                class="form-control" 
+                formControlName="email"
+                [ngClass]="{'is-invalid': addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched}"
+                aria-describedby="emailHelp">
+            <div class="invalid-feedback" id="emailHelp">
+                Um email válido é obrigatório.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="telefone" class="form-label">Telefone</label>
+            <input 
+                id="telefone" 
+                type="text" 
+                class="form-control" 
+                formControlName="telefone"
+                mask="(00) 00000-0000"
+                placeholder="(99) 99999-9999"
+                [ngClass]="{'is-invalid': addUserForm.get('telefone')?.invalid && addUserForm.get('telefone')?.touched}"
+                aria-describedby="telefoneHelp">
+            <div class="invalid-feedback" id="telefoneHelp">
+                Telefone é obrigatório
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button 
+                type="submit" 
+                class="btn btn-success" 
+                [disabled]="addUserForm.invalid || isSubmitting">
+                <span 
+                    class="spinner-border spinner-border-sm me-1" 
+                    *ngIf="isSubmitting" 
+                    role="status">
+                </span>
+                {{ isSubmitting ? 'Salvando...' : 'Adicionar' }}
+            </button>
+            <a routerLink="/" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

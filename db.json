@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nome": "João Silva",
+      "email": "joao.silva@example.com",
+      "telefone": "(11) 98765-4321"
+    },
+    {
+      "id": "2",
+      "nome": "Maria Souza",
+      "email": "maria.souza@example.com",
+      "telefone": "(21) 91234-5678"
+    },
+    {
+      "id": "9286",
+      "nome": "Felipe Dias",
+      "email": "felipe.dias@startupxxi.com.br",
+      "telefone": "11987651234"
+    },
+    {
+      "id": "b33b",
+      "nome": "teste",
+      "email": "teste@gmail.com",
+      "telefone": "11999995555"
+    }
+  ]
+}
