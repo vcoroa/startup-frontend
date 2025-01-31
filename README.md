@@ -39,6 +39,7 @@ npm start
 
 ## Estrutura do Projeto
 
+```text
 src/
 ├── app/
 │   ├── components/
@@ -53,6 +54,7 @@ src/
 │   ├── app.routes.ts       # Configuração de rotas
 │   └── app.config.ts       # Configuração do app
 └── styles.css              # Estilos globais
+```
 
 ## Scripts Disponíveis
 
